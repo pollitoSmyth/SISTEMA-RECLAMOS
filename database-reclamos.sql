@@ -36,12 +36,12 @@ CREATE TABLE EstadosReclamo (
 INSERT INTO EstadosReclamo (Estado) VALUES ('Pendiente'), ('En proceso'), ('Resuelto');
 
 
--- Nueva estructura de Reclamos
+-- Tabla Reclamos
 CREATE TABLE Reclamos (
     ID INT IDENTITY(1,1) PRIMARY KEY,
-    UsuarioID INT NOT NULL,  -- Se relaciona con Usuarios
+    UsuarioID INT NOT NULL,  
     TipoReclamoID INT NOT NULL,
-    EstadoID INT NOT NULL DEFAULT 1,  -- Referencia a EstadosReclamo (Por defecto: Pendiente)
+    EstadoID INT NOT NULL DEFAULT 1,
     Descripcion TEXT NOT NULL,
     FechaCreacion DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(ID),
